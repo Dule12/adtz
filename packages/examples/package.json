@@ -1,0 +1,41 @@
+{
+  "name": "adtts-examples",
+  "version": "0.0.1",
+  "description": "Pattern mattching, ADTs for Typescript",
+  "main": "src/index.js",
+  "typings": "dist/index.d.ts",
+  "repository": "https://github.com/Dule12/adtts.git",
+  "author": "Dusan Svitlica dsvitlica@gmail.com",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "cross-var tsc --sourceRoot $npm_package_name --listEmittedFiles --pretty --inlineSourceMap --inlineSources",
+    "start": "cross-var tsc -w --sourceRoot $npm_package_name --listEmittedFiles --pretty --inlineSourceMap --inlineSources"
+  },
+  "keywords": [
+    "ADT",
+    "Algebraic data types",
+    "Discriminated union",
+    "Functional programming",
+    "Pattern matching",
+    "Match",
+    "When",
+    "Sum types",
+    "Tagged unions",
+    "TypeScript",
+    "Option",
+    "Result",
+    "Future",
+    "List",
+    "Set",
+    "Map",
+    "Monad"
+  ],
+  "sideEffects": false,
+  "dependencies": {
+    "adtts": "^0.0.1"
+  }
+}

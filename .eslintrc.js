@@ -22,6 +22,7 @@ module.exports = {
         "no-empty-function": "warn",
         "no-param-reassign": ["error", { "props": false }],
         "spaced-comment": "off",
+        "dot-notation" : "off",
         "import/no-unresolved": "off",
         "class-methods-use-this": "off",
         "import/prefer-default-export": "off",

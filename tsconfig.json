@@ -17,5 +17,5 @@
         "jsx": "react",
         "lib": ["es6", "es7", "dom", "es2015", "esnext"]
     },
-    "include": ["./lib/**/*.ts"]
+    "include": ["./src/**/*.ts"]
 }

@@ -1,0 +1,24 @@
+{
+  "name": "adtts",
+  "version": "0.0.1",
+  "description": "Pattern mattching, ADTs for Typescript",
+  "main": "src/index.js",
+  "typings": "dist/index.d.ts",
+  "repository": "https://github.com/Dule12/adtts.git",
+  "author": "Dusan Svitlica dsvitlica@gmail.com",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "doc": "cross-var typedoc --name $npm_package_name --mode modules --module commonjs --excludePrivate --excludeExternals --externalPattern '**/node_modules/**' --out doc/ packages/**/ts/",
+    "build": "cross-var tsc --sourceRoot $npm_package_name --listEmittedFiles --pretty --inlineSourceMap --inlineSources",
+    "start": "cross-var tsc -w --sourceRoot $npm_package_name --listEmittedFiles --pretty --inlineSourceMap --inlineSources"
+  },
+  "files": [
+    "dist/"
+  ],
+  "sideEffects": false,
+  "dependencies": {
+    "typelevel-ts": "^0.4.0",
+    "utility-types": "^3.10.0"
+  }
+}

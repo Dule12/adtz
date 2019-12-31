@@ -84,7 +84,7 @@ type Pattern<PT extends { type: string }, RT> =
 
 const match: <PT extends { type: string }>() => <RT>(pattern: Pattern<PT, RT>) => (shape: PT) => RT = () => (
     pattern,
-) => (shape) => (pattern[shape.type] !== undefined ? pattern[shape.type](shape) : pattern._());
+) => (shape) => (pattern[shape.type] !== undefined ? pattern[shape.type](shape) : pattern["_"]());
 
 // const matcher = match<Shape, Shape>({
 //     Square: square => new Square(square.side * 2),
@@ -126,7 +126,7 @@ const matcher4 = match<Shapes>()({
 //console.log(matchs(matchs(matchs({ type: "Rectangle", width: 555, height: 4553 }))))
 
 const matching: <PT extends { type: string }, RT>(pattern: Pattern<PT, RT>, PT) => RT = (pattern, shape) =>
-    pattern[shape.type] !== undefined ? pattern[shape.type](shape) : pattern._();
+    pattern[shape.type] !== undefined ? pattern[shape.type](shape) : pattern["_"]();
 
 const matchFn: <PT extends { type: string }>() => <RT>(pattern: Pattern<PT, RT>) => (shape: PT) => RT = () => (
     pattern,
