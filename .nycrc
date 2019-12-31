@@ -1,0 +1,33 @@
+{
+    "extension": [
+        ".ts"
+    ],
+    "include": [
+        "src"
+    ],
+    "reporter": [],
+    "all": true,
+    "temp-dir": "./coverage/.nyc_output",
+    "watermarks": {
+        "lines": [
+            90,
+            90
+        ],
+        "functions": [
+            90,
+            90
+        ],
+        "branches": [
+            90,
+            90
+        ],
+        "statements": [
+            90,
+            90
+        ]
+    },
+    "statements": 90,
+    "functions": 90,
+    "branches": 90,
+    "lines": 90
+}

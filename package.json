@@ -1,0 +1,67 @@
+{
+  "name": "adtts",
+  "version": "0.0.1",
+  "description": "Pattern mattching, ADTs for Typescript",
+  "main": "lib/index.js",
+  "typings": "dist/index.d.ts",
+  "repository": "https://github.com/Dule12/adtts.git",
+  "author": "Dusan Svitlica",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist/"
+  ],
+  "keywords": [
+    "ADT",
+    "Algebraic data types",
+    "Discriminated union",
+    "Functional programming",
+    "Pattern matching",
+    "Match",
+    "When",
+    "Sum types",
+    "Tagged unions",
+    "TypeScript",
+    "Option",
+    "Result",
+    "Future",
+    "List",
+    "Set",
+    "Map",
+    "Monad"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "format": "prettier --write -l lib/** -l test/**",
+    "lint": "eslint --fix lib/**/*.ts test/**/*.ts",
+    "test": "nyc ts-mocha -p tsconfig.json test/**/*.ts --exit",
+    "coverage": "nyc report --check-coverage --reporter text",
+    "build": "cross-var tsc --sourceRoot $npm_package_name --listEmittedFiles --pretty --inlineSourceMap --inlineSources",
+    "start": "cross-var tsc -w --sourceRoot $npm_package_name --listEmittedFiles --pretty --inlineSourceMap --inlineSources",
+    "all": "yarn format & yarn lint && yarn test && yarn coverage && yarn build"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.7",
+    "@types/mocha": "^5.2.7",
+    "@typescript-eslint/eslint-plugin": "^2.14.0",
+    "@typescript-eslint/parser": "^2.14.0",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "mocha": "^6.2.2",
+    "nyc": "^15.0.0",
+    "prettier": "^1.19.1",
+    "ts-mocha": "^6.0.0",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "cross-var": "^1.1.0",
+    "typelevel-ts": "^0.4.0",
+    "utility-types": "^3.10.0"
+  }
+}

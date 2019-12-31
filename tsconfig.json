@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": false,
+        "noImplicitThis": false,
+        "strictNullChecks": true,
+        "downlevelIteration": true,
+        "strict": true,
+        "declaration": true,
+        "outDir": "./dist/",
+        "incremental": true,
+        "target": "es5",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "moduleResolution": "node",
+        "alwaysStrict": true,
+        "noImplicitReturns": true,
+        "jsx": "react",
+        "lib": ["es6", "es7", "dom", "es2015", "esnext"]
+    },
+    "include": ["./lib/**/*.ts"]
+}
