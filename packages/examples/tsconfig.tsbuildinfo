@@ -150,7 +150,7 @@
         "signature": "0c9ea8c2028047f39a3f66752682604f543c08be8806258c3d95c93e75a43255"
       },
       "./src/index.ts": {
-        "version": "9b8090de7cb40209b9819469e2a90a1f3966cd6035ec5969de81c97dbb068d36",
+        "version": "b5cd28a8e4e60617460d634bcf0833b7e1e392d6c90524fcabd43912b9a18403",
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
       "../../node_modules/@types/chai/index.d.ts": {
@@ -377,6 +377,7 @@
       "downlevelIteration": true,
       "strict": true,
       "declaration": true,
+      "outDir": "./dist",
       "incremental": true,
       "target": 1,
       "experimentalDecorators": true,
@@ -393,7 +394,7 @@
         "lib.esnext.d.ts"
       ],
       "rootDir": "./src",
-      "outDir": "./dist",
+      "watch": true,
       "sourceRoot": "adtts-examples",
       "listEmittedFiles": true,
       "pretty": true,

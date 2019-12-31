@@ -32,6 +32,7 @@
     "test": "nyc ts-mocha -p tsconfig.json packages/**/test/**/*.ts --exit",
     "coverage": "nyc report --check-coverage --reporter text",
     "build": "lerna run build",
+    "watch": "lerna  run watch --parallel",
     "start": "lerna  run start",
     "all": "yarn && yarn format && yarn lint && yarn test && yarn coverage && yarn build"
   },

@@ -12,6 +12,8 @@ npm-debug.log*
 yarn-debug.log*
 .eslintcache
 
+tsconfig.tsbuildinfo
+
 .idea
 .vscode
 *.sublime-project

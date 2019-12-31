@@ -11,7 +11,7 @@
   "scripts": {
     "doc": "cross-var typedoc --name $npm_package_name --mode modules --module commonjs --excludePrivate --excludeExternals --externalPattern '**/node_modules/**' --out doc/ packages/**/ts/",
     "build": "cross-var tsc --sourceRoot $npm_package_name --listEmittedFiles --pretty --inlineSourceMap --inlineSources",
-    "start": "cross-var tsc -w --sourceRoot $npm_package_name --listEmittedFiles --pretty --inlineSourceMap --inlineSources"
+    "watch": "cross-var tsc -w --sourceRoot $npm_package_name --listEmittedFiles --pretty --inlineSourceMap --inlineSources"
   },
   "files": [
     "dist/"

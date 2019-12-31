@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "build": "cross-var tsc --sourceRoot $npm_package_name --listEmittedFiles --pretty --inlineSourceMap --inlineSources",
-    "start": "cross-var tsc -w --sourceRoot $npm_package_name --listEmittedFiles --pretty --inlineSourceMap --inlineSources"
+    "watch": "cross-var tsc -w --sourceRoot $npm_package_name --listEmittedFiles --pretty --inlineSourceMap --inlineSourcesx.js",
+    "start" :  "node --inspect-brk dist/index.js "
   },
   "keywords": [
     "ADT",
