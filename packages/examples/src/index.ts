@@ -164,11 +164,11 @@ const zzf = dh.map(v => v.toString());
 const zz2 = d1.map(v => v.toString());
 console.log(`o: ${zzf.unwrapOr("/")} n: ${zz2.unwrapOr("/")}`);
 
-class xx extends Promise<void> {
-    constructor(fn) {
-        super(fn);
-    }
-}
+// class xx extends Promise<void> {
+//     constructor(fn) {
+//         super(fn);
+//     }
+// }
 
 // (async function() {
 //     const x = new xx((r) => setTimeout(() => r(), 10000));
@@ -186,6 +186,7 @@ class xx extends Promise<void> {
 //     const l = await futurez;
 //     alert(l.unwrap());
 // })();
+
 type Tz =
     | {
           type: "MM";
@@ -215,14 +216,46 @@ const zz = {
 console.log(matcher1(zc));
 console.log(matcher1(zz));
 
-function sw(val:Tz) {
+function sw(val: Tz) {
     let ret;
     switch (val.type) {
-        case "MM": ret = 55; break;
-        case "FF": ret = 33; break;
-        case "NN": ret = 12; break;
-        case "String": ret = 7; break;
+        case "MM":
+            ret = 55;
+            break;
+        case "FF":
+            ret = 33;
+            break;
+        case "NN":
+            ret = 12;
+            break;
+        case "String":
+            ret = 7;
+            break;
     }
     return ret;
 }
-const sds = sw("34" as String)
+const sds = sw("34" as String);
+
+// doEx([
+//     [] => Some(55),
+//     [s] => Some(32),
+//     [s,t ] => t = s
+// ])
+
+const x = new CompletableFuture<number>((res, rej) => setTimeout(() => res(555)));
+
+const y = new CompletableFuture<number>((res, rej) => setTimeout(() => rej(555)));
+
+x.then(v =>
+    v.match({
+        Success: s => console.log(s.type + " " + s.val),
+        Failure: f => console.log(f.type),
+    }),
+);
+
+(async function() {
+    (await y).match({
+        Success: s => console.log(s.type + " " + s.val),
+        Failure: f => console.log(f.type),
+    });
+})();

@@ -48,17 +48,22 @@ export class Failure<T = any> extends Future<T> {
     }
 }
 
-export class CompletableFuture<T> extends Promise<Future<T>> {
+export class CompletableFuture<T> {
+    private prom: Promise<Future<T>>;
+
     constructor(callback: (resolver: (val: T) => void, rejecter: (val: any) => void) => void) {
-        super(localResolver => {
-            const localProm = new Promise<T>(callback);
-            localProm
-                .then(v => {
+        this.prom = new Promise(localResolver => {
+            new Promise<T>(callback)
+                .then((v): any => {
                     localResolver(new Success(v));
                 })
                 .catch(e => {
                     localResolver(new Failure());
                 });
         });
+    }
+
+    then(onfulfilled: (value: Future<T>) => any) {
+        return this.prom.then(onfulfilled);
     }
 }
