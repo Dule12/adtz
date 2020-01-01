@@ -1,6 +1,9 @@
-import { ADT } from "../core";
+import { ADT, Mapper } from "../core";
 
-export abstract class Result<T, E> extends ADT<Ok<T> | Err<E>> {
+
+
+
+export abstract class Result<T, E> extends ADT<Ok<T> | Err<E>> implements Mapper<Ok<T> | Err<E>> {
     abstract unwrap(): T;
 
     abstract unwrapOr(def: T): T;

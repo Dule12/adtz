@@ -49,8 +49,21 @@ export const match: <PT extends StrType>() => <RT>(
  * Various container types can be derrived from this,
  * Or value classes could be created directly by inheriting this
  */
-export abstract class ADT<PT extends { type: string }> {
+export abstract class ADT<PT extends StrType> {
     abstract type: string;
 
     match: <RT>(pattern: Pattern<PT, RT>) => RT = (pattern) => matching(pattern, this);
+}
+
+
+/**
+ * Interface that describes collections that be in for expression
+ * Should be more precisely defined in abstract collection classes
+ * Should be implemented in each variant class
+ */
+export type Mapper<PT extends StrType> = {
+
+    map :(mapper: (v: any) => any) => ADT<PT>;
+
+    flatMap :(mapper: (v: any) => any) => ADT<PT>;
 }
