@@ -4,23 +4,53 @@ import { DeepReadonly } from "utility-types";
 /**
  * Object tagged by name for pattern matching
  */
-export type StrType = { type: string };
+export type TaggedType = { type: string };
+
+/**
+ * Tag strings
+ */
+(String.prototype as any).type = "String";
+
+/**
+ * Tag numbers
+ */
+(Number.prototype as any).type = "Number";
+
+/**
+ * Tag bools
+ */
+(Boolean.prototype as any).type = "Boolean";
+
+/**
+ * String matchable
+ */
+export type String = string & { type: "String" };
+
+/**
+ * Boolean matchable
+ */
+export type Boolean = boolean & { type: "Boolean" };
+
+/**
+ * Number matchable
+ */
+export type Number = number & { type: "Number" };
 
 /**
  * Provides key strings for variants
  * Provides type information for object that is passed as parameter to handler
  */
-type Typed<T extends StrType> = {
+type Typed<T extends TaggedType> = {
     [CT in T["type"]]: T extends { type: CT } ? T : never;
 };
 
 /**
- * Type declares pattern object so that all possible variants are provided
- * Or "_" key handles unhandled variants
+ * Type declares pattern object so that all possible variants are provided(exaustiveness)
+ * Or "_" key handles unlisted variants
  * Makes sure that they all have same return type
- * Makes sure that all types have string flag for type
+ * Makes sure that all types have string tag for type
  */
-type Pattern<PT extends StrType, RT> =
+type Pattern<PT extends TaggedType, RT> =
     | {
           [K in keyof Typed<PT>]: (shape: Typed<PT>[K]) => RT;
       }
@@ -31,8 +61,10 @@ type Pattern<PT extends StrType, RT> =
  * @param pattern Object with variants of all allowed values declared for matching expression and their handlers
  * @param shape Value passed fro whom matching is performad
  */
-const matching: <PT extends StrType, RT>(pattern: Pattern<PT, RT>, PT) => RT = (pattern, shape) =>
-    pattern[shape.type] !== undefined ? pattern[shape.type](shape) : pattern["_"]();
+const matching: <PT extends TaggedType, RT>(pattern: Pattern<PT, RT>, PT) => RT = (
+    pattern,
+    shape,
+) => (pattern[shape.type] !== undefined ? pattern[shape.type](shape) : pattern["_"]());
 
 /**
  * Matcher function used for functional/non inheritance based matching
@@ -40,7 +72,7 @@ const matching: <PT extends StrType, RT>(pattern: Pattern<PT, RT>, PT) => RT = (
  * So first function recieves variant set for matching as type parameter
  * Second one for return type, parameters can be omitted and inferred
  */
-export const match: <PT extends StrType>() => <RT>(
+export const match: <PT extends TaggedType>() => <RT>(
     pattern: Pattern<PT, RT>,
 ) => (shape: PT) => RT = () => pattern => shape => matching(pattern, shape);
 
@@ -49,7 +81,7 @@ export const match: <PT extends StrType>() => <RT>(
  * Various container types can be derrived from this,
  * Or value classes could be created directly by inheriting this
  */
-export abstract class ADT<PT extends StrType> {
+export abstract class ADT<PT extends TaggedType> {
     abstract type: string;
 
     match: <RT>(pattern: Pattern<PT, RT>) => RT = pattern => matching(pattern, this);
@@ -60,7 +92,7 @@ export abstract class ADT<PT extends StrType> {
  * Should be more precisely defined in abstract collection classes
  * Should be implemented in each variant class
  */
-export type Mapper<PT extends StrType> = {
+export type Mapper<PT extends TaggedType> = {
     map: (mapper: (v: any) => any) => ADT<PT>;
 
     flatMap: (mapper: (v: any) => any) => ADT<PT>;

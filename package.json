@@ -28,8 +28,8 @@
     "test": "nyc mocha -r ts-node/register -p tsconfig.json packages/**/test/**/*.ts",
     "coverage": "nyc report --check-coverage --reporter text",
     "build": "lerna run build",
-    "watch": "lerna  run watch --parallel",
-    "start": "lerna  run start",
+    "watch": "lerna run watch --parallel",
+    "start": "lerna run build && lerna run start",
     "all": "yarn && yarn format && yarn lint && yarn test && yarn coverage && yarn build"
   },
   "devDependencies": {

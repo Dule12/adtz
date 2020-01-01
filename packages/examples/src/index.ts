@@ -1,4 +1,5 @@
-import { match, ADT, None, Option, Some, CompletableFuture } from "adtts";
+import "adtts";
+import { match, ADT, None, Option, Some, CompletableFuture, String, Boolean, Number } from "adtts";
 
 class Square {
     type = "Square" as const;
@@ -185,3 +186,43 @@ class xx extends Promise<void> {
 //     const l = await futurez;
 //     alert(l.unwrap());
 // })();
+type Tz =
+    | {
+          type: "MM";
+          valz: number;
+      }
+    | {
+          type: "FF";
+      }
+    | {
+          type: "NN";
+          a: boolean;
+      }
+    | String;
+
+const matcher1 = match<Tz>()({
+    MM: v => 55,
+    FF: v => 33,
+    NN: v => 22,
+    String: v => parseInt(v),
+});
+const zc = "123" as String;
+const zz = {
+    type: "MM" as const,
+    valz: 23,
+};
+
+console.log(matcher1(zc));
+console.log(matcher1(zz));
+
+function sw(val:Tz) {
+    let ret;
+    switch (val.type) {
+        case "MM": ret = 55; break;
+        case "FF": ret = 33; break;
+        case "NN": ret = 12; break;
+        case "String": ret = 7; break;
+    }
+    return ret;
+}
+const sds = sw("34" as String)
