@@ -2,7 +2,7 @@
   "name": "adtts",
   "version": "0.0.1",
   "description": "Pattern mattching, ADTs for Typescript",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "repository": "https://github.com/Dule12/adtts.git",
   "author": "Dusan Svitlica dsvitlica@gmail.com",

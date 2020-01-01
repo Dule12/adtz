@@ -171,19 +171,19 @@ class xx extends Promise<void> {
     }
 }
 
-(async function() {
-    const x = new xx((r) => setTimeout(() => r(), 10000));
-    await x;
-    console.log("rtr");
-})();
+// (async function() {
+//     const x = new xx((r) => setTimeout(() => r(), 10000));
+//     await x;
+//     console.log("rtr");
+// })();
 
-(async function() {
-    const futurez = new CompletableFuture<number>((res, rej) => setTimeout(() => res(555)));
-    (await futurez).match({
-        Failure: (f) => console.log("FAilz"),
-        Success: (s) => console.log(`Success ${s.val}`),
-    });
+// (async function() {
+//     const futurez = new CompletableFuture<number>((res, rej) => setTimeout(() => res(555)));
+//     (await futurez).match({
+//         Failure: (f) => console.log("FAilz"),
+//         Success: (s) => console.log(`Success ${s.val}`),
+//     });
 
-    const l = await futurez;
-    alert(l.unwrap());
-})();
+//     const l = await futurez;
+//     alert(l.unwrap());
+// })();

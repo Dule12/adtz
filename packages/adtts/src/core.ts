@@ -57,7 +57,7 @@ export abstract class ADT<PT extends StrType> {
 
 
 /**
- * Interface that describes collections that be in for expression
+ * Loose interface that describes collections that be in for expression
  * Should be more precisely defined in abstract collection classes
  * Should be implemented in each variant class
  */
