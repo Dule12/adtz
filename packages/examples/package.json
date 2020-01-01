@@ -14,7 +14,7 @@
   "scripts": {
     "build": "cross-var tsc --sourceRoot $npm_package_name --listEmittedFiles --pretty --inlineSourceMap --inlineSources",
     "watch": "cross-var tsc -w --sourceRoot $npm_package_name --listEmittedFiles --pretty --inlineSourceMap --inlineSourcesx.js",
-    "start" :  "node --inspect-brk dist/index.js "
+    "start": "node --inspect-brk dist/index.js "
   },
   "keywords": [
     "ADT",
@@ -37,6 +37,7 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "adtts": "^0.0.1"
+    "adtts": "^0.0.1",
+    "ts-node": "^8.5.4"
   }
 }
