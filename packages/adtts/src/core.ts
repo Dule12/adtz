@@ -50,7 +50,7 @@ type Typed<T extends TaggedType> = {
  * Makes sure that they all have same return type
  * Makes sure that all types have string tag for type
  */
-type Pattern<PT extends TaggedType, RT> =
+export type Pattern<PT extends TaggedType, RT> =
     | {
           [K in keyof Typed<PT>]: (shape: Typed<PT>[K]) => RT;
       }
@@ -61,7 +61,7 @@ type Pattern<PT extends TaggedType, RT> =
  * @param pattern Object with variants of all allowed values declared for matching expression and their handlers
  * @param shape Value passed fro whom matching is performad
  */
-const matching: <PT extends TaggedType, RT>(pattern: Pattern<PT, RT>, PT) => RT = (
+export const matching: <PT extends TaggedType, RT>(pattern: Pattern<PT, RT>, PT) => RT = (
     pattern,
     shape,
 ) => (pattern[shape.type] !== undefined ? pattern[shape.type](shape) : pattern["_"]());

@@ -258,4 +258,9 @@ x.then(v =>
         Success: s => console.log(s.type + " " + s.val),
         Failure: f => console.log(f.type),
     });
+
+    await x.matchAsync({
+        Success: s => console.log(s.type + " xx " + s.val),
+        Failure: f => console.log(f.type),
+    });
 })();

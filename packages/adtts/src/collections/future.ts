@@ -1,4 +1,4 @@
-import { ADT } from "../core";
+import { ADT, Pattern, match, TaggedType, matching } from "../core";
 
 export abstract class Future<T> extends ADT<Success<T> | Failure> {
     abstract unwrap(): T;
@@ -65,5 +65,10 @@ export class CompletableFuture<T> {
 
     then(onfulfilled: (value: Future<T>) => any) {
         return this.prom.then(onfulfilled);
+    }
+
+    matchAsync : <PT extends (Success<T> | Failure) & TaggedType, RT>(pattern: Pattern<PT, RT>) => Promise<RT> = async (pattern) => {
+        let res = await this.prom;
+        return matching(pattern, res);
     }
 }
