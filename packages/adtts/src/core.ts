@@ -1,4 +1,4 @@
-import {} from "typelevel-ts";
+import { AnyTuple } from "typelevel-ts";
 import { DeepReadonly } from "utility-types";
 
 /**
@@ -93,7 +93,29 @@ export abstract class ADT<PT extends TaggedType> {
  * Should be implemented in each variant class
  */
 export type Mapper<PT extends TaggedType> = {
-    map: (mapper: (v: any) => any) => ADT<PT>;
+    map: (mapper: (v: any) => any) => Mapper<PT>;
 
-    flatMap: (mapper: (v: any) => any) => ADT<PT>;
+    flatMap: (mapper: (v: any) => Mapper<PT>) => Mapper<PT>;
 };
+
+
+// export const doEx: <T>(params: (() => any)[]) => any = (params) => {
+//     let it = 0;
+//     let ret;
+//     const mapping = (par : any ) => {
+//         it ++;
+//         it === params.length - 2 ? mapping(par.map(params[it])) : undefined;
+//         it < params.length - 2 ? mapping(par.flatMap(params[it])) : undefined;
+//         ret = it === params.length - 1 ? params[it]() : undefined;
+//     };
+//     mapping(params[it]());
+    
+// }
+
+// type DoValues<T> = T
+
+// type DoSteps<PM extends AnyTuple> = {
+//     [K in keyof PM]: DoValues<PM[K]>;
+// }
+
+// export const doEx: <PM extends AnyTuple>(params: PM) => any = (params) => 1

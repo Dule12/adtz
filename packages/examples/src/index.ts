@@ -1,5 +1,5 @@
 import "adtts";
-import { match, ADT, None, Option, Some, CompletableFuture, String, Boolean, Number } from "adtts";
+import { match, ADT, None, Option, Some, CompletableFuture, String, Boolean, Number, doEx } from "adtts";
 
 class Square {
     type = "Square" as const;
@@ -226,3 +226,10 @@ function sw(val:Tz) {
     return ret;
 }
 const sds = sw("34" as String)
+
+
+// doEx([
+//     [] => Some(55),
+//     [s] => Some(32),
+//     [s,t ] => t = s
+// ])
