@@ -18,17 +18,16 @@ export class Success<T> extends Future<T> {
 
     unwrap = () => this.val;
 
- 
     unwrapOr = (def: T) => this.unwrap();
 
     // TODO fix
     map<U>(mapper: (v: any) => U): ADT<any> {
         return {} as any;
-    };
+    }
     // TODO fix
     flatMap<U>(mapper: (v: any) => ADT<any>): ADT<any> {
         return {} as any;
-    };;
+    }
 }
 export class Failure<T = any> extends Future<T> {
     type = "Failure" as const;
@@ -42,22 +41,22 @@ export class Failure<T = any> extends Future<T> {
     // TODO fix
     map<U>(mapper: (v: any) => U): ADT<any> {
         return {} as any;
-    };
+    }
     // TODO fix
     flatMap<U>(mapper: (v: any) => ADT<any>): ADT<any> {
         return {} as any;
-    };
+    }
 }
 
 export class CompletableFuture<T> extends Promise<Future<T>> {
     constructor(callback: (resolver: (val: T) => void, rejecter: (val: any) => void) => void) {
-        super((localResolver) => {
+        super(localResolver => {
             const localProm = new Promise<T>(callback);
             localProm
-                .then((v) => {
+                .then(v => {
                     localResolver(new Success(v));
                 })
-                .catch((e) => {
+                .catch(e => {
                     localResolver(new Failure());
                 });
         });

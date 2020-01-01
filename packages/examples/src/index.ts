@@ -68,27 +68,27 @@ type Shapes =
     | Eclipse;
 
 const matcher2 = match<Shapes>()<Shapes>({
-    Rectangle: (v) => ({
+    Rectangle: v => ({
         type: "Circle",
         radius: v.height * 5,
         cls: { type: "Elipse", dds: 1 },
     }),
-    Square: (v) => ({ type: "Elipse", dds: v.side }),
-    Circle: (v) => ({
+    Square: v => ({ type: "Elipse", dds: v.side }),
+    Circle: v => ({
         type: "Elipse",
         dds: match()({ _: () => 52 })(v.cls),
     }),
-    Elipse: (v) => ({ type: "Elipse", dds: v.dds }),
+    Elipse: v => ({ type: "Elipse", dds: v.dds }),
     _: () => ({ type: "Elipse", dds: 1 }),
 });
 console.log(matcher2(matcher2(matcher2({ type: "Rectangle", width: 555, height: 33 }))));
 console.log(matcher2({ type: "Circle", radius: 5345, cls: { type: "Elipse", dds: 3 } }));
 
 const matcher4 = match<Shapes>()({
-    Rectangle: (v) => ({ dsd: 55, sds: 52 }),
-    Square: (v) => ({ dsd: 55, sds: 52 }),
-    Circle: (v) => ({ dsd: 55 }),
-    Elipse: (v) => ({ dsd: v.dds, sds: "" }),
+    Rectangle: v => ({ dsd: 55, sds: 52 }),
+    Square: v => ({ dsd: 55, sds: 52 }),
+    Circle: v => ({ dsd: 55 }),
+    Elipse: v => ({ dsd: v.dds, sds: "" }),
     _: () => ({ dsd: 55, sds: 52 }),
 });
 
@@ -111,9 +111,7 @@ const matcher4 = match<Shapes>()({
 //console.log(matchs(matchs(matchs({ type: "Rectangle", width: 555, height: 4553 }))))
 
 type Sum = Sub1 | Sub2;
-class Sumz extends ADT<Sum> {
-    type = "Sumz";
-
+abstract class Sumz extends ADT<Sum> {
     findSub1 = () => (this.type === "Sub2" ? this : new Sub2(""));
 }
 
@@ -138,9 +136,9 @@ const f = s2.findSub1();
 
 console.log(`yo ${f}`);
 
-const res = s2.match<string>({
-    Sub1: (t) => t.side.toString(),
-    Sub2: (t) => t.name,
+const res = s2.match({
+    Sub1: t => t.side.toString(),
+    Sub2: t => t.name,
 });
 console.log(res);
 
@@ -148,8 +146,8 @@ const h = new None();
 
 function fn(opt: Option<number>): string {
     return opt.match({
-        Some: (d) => d.val.toString(),
-        None: (_) => "Err",
+        Some: d => d.val.toString(),
+        None: _ => "Err",
     });
 }
 
@@ -161,8 +159,8 @@ console.log(h.unwrapOr(11));
 
 const dh: Option<number> = new Some(1);
 const d1: Option<number> = new None();
-const zzf = dh.map((v) => v.toString());
-const zz2 = d1.map((v) => v.toString());
+const zzf = dh.map(v => v.toString());
+const zz2 = d1.map(v => v.toString());
 console.log(`o: ${zzf.unwrapOr("/")} n: ${zz2.unwrapOr("/")}`);
 
 class xx extends Promise<void> {

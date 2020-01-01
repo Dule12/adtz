@@ -42,7 +42,7 @@ const matching: <PT extends StrType, RT>(pattern: Pattern<PT, RT>, PT) => RT = (
  */
 export const match: <PT extends StrType>() => <RT>(
     pattern: Pattern<PT, RT>,
-) => (shape: PT) => RT = () => (pattern) => (shape) => matching(pattern, shape);
+) => (shape: PT) => RT = () => pattern => shape => matching(pattern, shape);
 
 /**
  * Base class that provides pattern ADT and pattern matching functionality through inheritance
@@ -52,9 +52,8 @@ export const match: <PT extends StrType>() => <RT>(
 export abstract class ADT<PT extends StrType> {
     abstract type: string;
 
-    match: <RT>(pattern: Pattern<PT, RT>) => RT = (pattern) => matching(pattern, this);
+    match: <RT>(pattern: Pattern<PT, RT>) => RT = pattern => matching(pattern, this);
 }
-
 
 /**
  * Loose interface that describes collections that be in for expression
@@ -62,8 +61,7 @@ export abstract class ADT<PT extends StrType> {
  * Should be implemented in each variant class
  */
 export type Mapper<PT extends StrType> = {
+    map: (mapper: (v: any) => any) => ADT<PT>;
 
-    map :(mapper: (v: any) => any) => ADT<PT>;
-
-    flatMap :(mapper: (v: any) => any) => ADT<PT>;
-}
+    flatMap: (mapper: (v: any) => any) => ADT<PT>;
+};
