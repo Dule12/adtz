@@ -1,5 +1,19 @@
-import "adtts";
-import { match, ADT, None, Option, Some, CompletableFuture, String, Boolean, Number } from "adtts";
+/* eslint-disable */
+import {
+    match,
+    ADT,
+    None,
+    Option,
+    Some,
+    CompletableFuture,
+    String,
+    Boolean,
+    Number,
+} from "adtts";
+
+/**
+ * Random usage
+ */
 
 class Square {
     type = "Square" as const;
@@ -82,8 +96,12 @@ const matcher2 = match<Shapes>()<Shapes>({
     Elipse: v => ({ type: "Elipse", dds: v.dds }),
     _: () => ({ type: "Elipse", dds: 1 }),
 });
-console.log(matcher2(matcher2(matcher2({ type: "Rectangle", width: 555, height: 33 }))));
-console.log(matcher2({ type: "Circle", radius: 5345, cls: { type: "Elipse", dds: 3 } }));
+console.log(
+    matcher2(matcher2(matcher2({ type: "Rectangle", width: 555, height: 33 }))),
+);
+console.log(
+    matcher2({ type: "Circle", radius: 5345, cls: { type: "Elipse", dds: 3 } }),
+);
 
 const matcher4 = match<Shapes>()({
     Rectangle: v => ({ dsd: 55, sds: 52 }),
@@ -242,25 +260,29 @@ const sds = sw("34" as String);
 //     [s,t ] => t = s
 // ])
 
-const x = new CompletableFuture<number>((res, rej) => setTimeout(() => res(555)));
+const x = new CompletableFuture<number>((res, rej) =>
+    setTimeout(() => res(555)),
+);
 
-const y = new CompletableFuture<number>((res, rej) => setTimeout(() => rej(555)));
+const y = new CompletableFuture<number>((res, rej) =>
+    setTimeout(() => rej(555)),
+);
 
 x.then(v =>
     v.match({
-        Success: s => console.log(s.type + " " + s.val),
+        Success: s => console.log(`${s.type} ${s.val}`),
         Failure: f => console.log(f.type),
     }),
 );
 
 (async function() {
     (await y).match({
-        Success: s => console.log(s.type + " " + s.val),
+        Success: s => console.log(`${s.type} ${s.val}`),
         Failure: f => console.log(f.type),
     });
 
     await x.matchAsync({
-        Success: s => console.log(s.type + " xx " + s.val),
+        Success: s => console.log(`${s.type} xx ${s.val}`),
         Failure: f => console.log(f.type),
     });
 })();

@@ -1,5 +1,8 @@
 import { ADT, Mapper } from "../core";
 
+/**
+ * Base Container for result type
+ */
 export abstract class Result<T, E> extends ADT<Ok<T> | Err<E>> {
     abstract unwrap(): T;
 
@@ -10,6 +13,9 @@ export abstract class Result<T, E> extends ADT<Ok<T> | Err<E>> {
     abstract flatMap<U, UE>(mapper: (v: T) => Result<U, UE>): Result<U, UE>;
 }
 
+/**
+ * Container for existing result
+ */
 export class Ok<T> extends Result<T, any> {
     type = "Ok" as const;
 
@@ -28,6 +34,10 @@ export class Ok<T> extends Result<T, any> {
 
     flatMap = <U, UE>(mapper: (v: T) => Result<U, UE>) => mapper(this.val);
 }
+
+/**
+ * Container for error result
+ */
 export class Err<E = any> extends Result<any, E> {
     type = "Err" as const;
 

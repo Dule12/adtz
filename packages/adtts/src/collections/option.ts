@@ -1,5 +1,8 @@
 import { ADT } from "../core";
 
+/**
+ * Base Container for option type
+ */
 export abstract class Option<T> extends ADT<Some<T> | None<T>> {
     abstract unwrap(): T;
 
@@ -10,6 +13,9 @@ export abstract class Option<T> extends ADT<Some<T> | None<T>> {
     abstract flatMap<U>(mapper: (v: T) => Option<U>): Option<U>;
 }
 
+/**
+ * Container for existing data
+ */
 export class Some<T> extends Option<T> {
     type = "Some" as const;
 
@@ -28,6 +34,10 @@ export class Some<T> extends Option<T> {
 
     flatMap = <U>(mapper: (v: T) => Option<U>) => mapper(this.val);
 }
+
+/**
+ * Container for unpresent data
+ */
 export class None<T = any> extends Option<T> {
     type = "None" as const;
 

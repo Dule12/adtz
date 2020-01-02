@@ -61,10 +61,13 @@ export type Pattern<PT extends TaggedType, RT> =
  * @param pattern Object with variants of all allowed values declared for matching expression and their handlers
  * @param shape Value passed fro whom matching is performad
  */
-export const matching: <PT extends TaggedType, RT>(pattern: Pattern<PT, RT>, PT) => RT = (
-    pattern,
-    shape,
-) => (pattern[shape.type] !== undefined ? pattern[shape.type](shape) : pattern["_"]());
+export const matching: <PT extends TaggedType, RT>(
+    pattern: Pattern<PT, RT>,
+    PT,
+) => RT = (pattern, shape) =>
+    pattern[shape.type] !== undefined
+        ? pattern[shape.type](shape)
+        : pattern["_"]();
 
 /**
  * Matcher function used for functional/non inheritance based matching
@@ -84,7 +87,8 @@ export const match: <PT extends TaggedType>() => <RT>(
 export abstract class ADT<PT extends TaggedType> {
     abstract type: string;
 
-    match: <RT>(pattern: Pattern<PT, RT>) => RT = pattern => matching(pattern, this);
+    match: <RT>(pattern: Pattern<PT, RT>) => RT = pattern =>
+        matching(pattern, this);
 }
 
 /**

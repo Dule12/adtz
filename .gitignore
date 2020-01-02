@@ -6,6 +6,8 @@ doc
 coverage
 mochawesome-report
 
+.nyc_output
+
 logs
 *.log
 npm-debug.log*

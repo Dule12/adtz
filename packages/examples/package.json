@@ -39,5 +39,8 @@
   "dependencies": {
     "adtts": "0.0.1",
     "ts-node": "^8.5.4"
+  },
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.1"
   }
 }

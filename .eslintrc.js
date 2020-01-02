@@ -14,7 +14,9 @@ module.exports = {
         },
     },
     rules: {
-        "max-classes-per-file": ["error", 1],
+        "max-classes-per-file": "off",
+        "@typescript-eslint/ban-types": "off",
+        "import/extensions": "off",
         "no-eval": ["error"],
         "no-plusplus": "off",
         "no-undef": "off",
@@ -35,7 +37,7 @@ module.exports = {
             "error",
             {
                 "require": {
-                    "FunctionDeclaration": true,
+                    "FunctionDeclaration": false,
                     "MethodDefinition": false,
                     "ClassDeclaration": true,
                     "ArrowFunctionExpression": false,
