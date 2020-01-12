@@ -1,6 +1,6 @@
 {
   "name": "adtz-examples",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Pattern mattching, ADTs for Typescript",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -37,7 +37,7 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "adtz": "^0.0.5",
+    "adtz": "^0.0.6",
     "ts-node": "^8.5.4"
   },
   "devDependencies": {
