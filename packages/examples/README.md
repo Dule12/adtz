@@ -1,4 +1,4 @@
-# ADTts
+# ADTz
 
 Usage examples for ADTz library.
 

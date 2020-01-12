@@ -1,4 +1,4 @@
-# ADTts
+# ADTz
 
 Library that provides Algebraic Data Types (ADTs) and pattern matching. 
 Inspired by such features from Scala and Rust.
