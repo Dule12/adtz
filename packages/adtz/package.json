@@ -17,6 +17,21 @@
     "dist/"
   ],
   "sideEffects": false,
+  "keywords": [
+    "ADT",
+    "Algebraic data types",
+    "Discriminated union",
+    "Functional programming",
+    "Pattern matching",
+    "Match expression",
+    "Sum types",
+    "Tagged unions",
+    "TypeScript",
+    "Collections",
+    "Option",
+    "Typesafe",
+    "Monad"
+  ],
   "dependencies": {
     "ts-node": "^8.5.4",
     "typelevel-ts": "^0.4.0",
