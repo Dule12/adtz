@@ -1,10 +1,10 @@
 {
   "name": "adtz-examples",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Pattern mattching, ADTs for Typescript",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "repository": "https://github.com/Dule12/adtts.git",
+  "repository": "https://github.com/Dule12/adtz.git",
   "author": "Dusan Svitlica dsvitlica@gmail.com",
   "license": "MIT",
   "private": false,
@@ -37,11 +37,10 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "adtz": "0.0.1",
+    "adtz": "^0.0.4",
     "ts-node": "^8.5.4"
   },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.1"
-  },
-  "gitHead": "7a662a1e1b4f911bbe5954745cedf823b626527f"
+  }
 }
