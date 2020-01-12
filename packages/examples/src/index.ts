@@ -9,7 +9,7 @@ import {
     String,
     Boolean,
     Number,
-} from "adtts";
+} from "adtz";
 
 /**
  * Random usage

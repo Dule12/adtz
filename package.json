@@ -1,6 +1,6 @@
 {
   "description": "Pattern mattching, ADTs for Typescript",
-  "repository": "https://github.com/Dule12/adtts.git",
+  "repository": "https://github.com/Dule12/adtz.git",
   "author": "Dusan Svitlica dsvitlica@gmail.com",
   "license": "MIT",
   "private": true,
@@ -30,7 +30,7 @@
     "build": "lerna run build",
     "watch": "lerna run watch --parallel",
     "start": "lerna run build && lerna run start",
-    "all": "yarn && yarn format && yarn lint && yarn test && yarn coverage && yarn build"
+    "all": "yarn && lerna bootstrap && yarn format && yarn lint && yarn test && yarn coverage && yarn build"
   },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",

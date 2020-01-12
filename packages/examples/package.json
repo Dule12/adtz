@@ -1,5 +1,5 @@
 {
-  "name": "adtts-examples",
+  "name": "adtz-examples",
   "version": "0.0.1",
   "description": "Pattern mattching, ADTs for Typescript",
   "main": "dist/index.js",
@@ -37,10 +37,11 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "adtts": "0.0.1",
+    "adtz": "0.0.1",
     "ts-node": "^8.5.4"
   },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.1"
-  }
+  },
+  "gitHead": "0a20c9162e85bddfb820589dd626f33c66c24314"
 }

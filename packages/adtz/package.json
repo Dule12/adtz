@@ -1,5 +1,5 @@
 {
-  "name": "adtts",
+  "name": "adtz",
   "version": "0.0.1",
   "description": "Pattern mattching, ADTs for Typescript",
   "main": "dist/index.js",
@@ -26,5 +26,6 @@
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "chai": "^4.2.0",
     "mocha": "^6.2.2"
-  }
+  },
+  "gitHead": "0a20c9162e85bddfb820589dd626f33c66c24314"
 }
