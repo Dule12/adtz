@@ -4,7 +4,7 @@
   "description": "Pattern mattching, ADTs for Typescript",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "repository": "https://github.com/Dule12/adtts.git",
+  "repository": "https://github.com/Dule12/adtz.git",
   "author": "Dusan Svitlica dsvitlica@gmail.com",
   "license": "MIT",
   "private": false,
