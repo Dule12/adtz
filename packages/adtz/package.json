@@ -26,6 +26,5 @@
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "chai": "^4.2.0",
     "mocha": "^6.2.2"
-  },
-  "gitHead": "7a662a1e1b4f911bbe5954745cedf823b626527f"
+  }
 }
